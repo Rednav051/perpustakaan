@@ -139,6 +139,102 @@ ob_start(function($buffer) {
 [data-theme="light"] ::-webkit-scrollbar-track{background:var(--bg2)}
 [data-theme="light"] ::-webkit-scrollbar-thumb{background:var(--border)}
 [data-theme="light"] ::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE MOBILE — berlaku di semua halaman
+   ══════════════════════════════════════════ */
+
+/* Semua tabel bisa scroll horizontal di mobile */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{min-width:500px}
+
+/* Main padding lebih kecil di mobile */
+@media(max-width:600px){
+  .main{padding:16px 12px!important}
+
+  /* Stats grid: 2 kolom */
+  .stats-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}
+  .stat-card{padding:16px!important}
+  .stat-num{font-size:26px!important}
+  .stat-icon{font-size:22px!important;margin-bottom:8px!important}
+  .stat-label{font-size:11px!important}
+
+  /* Quick links: 2 kolom */
+  .quick-links{grid-template-columns:repeat(2,1fr)!important;gap:8px!important}
+  .quick-link{padding:12px 10px!important}
+  .quick-link-icon{font-size:20px!important;margin-bottom:6px!important}
+  .quick-link-text{font-size:12px!important}
+
+  /* Grid 2 kolom jadi 1 kolom */
+  .grid2{grid-template-columns:1fr!important;gap:12px!important}
+  .field-grid{grid-template-columns:1fr!important;gap:0!important}
+  .setting-row{grid-template-columns:1fr!important}
+
+  /* Tabel: sembunyikan kolom kurang penting */
+  .hide-mobile{display:none!important}
+  th,td{padding:9px 10px!important;font-size:12px!important}
+
+  /* Page title lebih kecil */
+  .page-title{font-size:20px!important}
+  .welcome h1{font-size:20px!important}
+
+  /* Filter bar: stack vertical */
+  .filter-row,.filter-bar{flex-direction:column!important;gap:8px!important}
+  .filter-row input,.filter-row select,.filter-bar input,.filter-bar select{width:100%!important;min-width:0!important}
+
+  /* Modal: full width */
+  .modal-box{max-width:calc(100vw - 32px)!important;padding:20px!important;margin:16px!important}
+
+  /* Cards padding */
+  .profile-card,.membership-card,.info-card,.pass-card,.edit-card,.section-card,.table-wrap{padding:16px!important}
+  .stat-card{padding:14px!important}
+
+  /* Section title */
+  .section-title{font-size:14px!important}
+
+  /* Peminjaman terbaru: sembunyikan Tgl Pinjam di mobile */
+  .tbl-pinjam th:nth-child(4),.tbl-pinjam td:nth-child(4){display:none!important}
+
+  /* Book grid: 1 kolom */
+  .books-grid{grid-template-columns:1fr!important}
+
+  /* Stats mini: keep 2 col */
+  .stats-mini{grid-template-columns:1fr 1fr!important}
+
+  /* Danger zone: stack */
+  .danger-zone{flex-direction:column!important;align-items:flex-start!important}
+  .hapus-form{flex-wrap:wrap!important;width:100%!important}
+  .hapus-form select,.btn-hapus-log{width:100%!important}
+
+  /* Pagination */
+  .pagination{gap:4px!important}
+  .page-btn{padding:6px 9px!important;font-size:12px!important}
+
+  /* Page header */
+  .page-header{flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+  .page-header .btn-primary{width:100%!important;text-align:center!important}
+
+  /* Profile card */
+  .profile-card .profile-detail{font-size:12px!important}
+  .info-row{font-size:13px!important}
+
+  /* Form buttons */
+  .btn,.btn-save,.btn-primary,.btn-filter{font-size:14px!important}
+  .edit-card-footer{justify-content:stretch!important}
+  .edit-card-footer .btn{width:100%!important}
+
+  /* Alert */
+  .alert{font-size:12px!important;padding:10px 12px!important}
+
+  /* Table peminjaman admin: sembunyikan pengarang & dikembalikan */
+  th:nth-child(3):not(.keep),td:nth-child(3):not(.keep){font-size:11px!important}
+}
+
+@media(max-width:400px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)!important}
+  .nav-brand .brand-text{font-size:15px!important}
+  th,td{padding:7px 8px!important;font-size:11px!important}
+}
 </style>
 <script>(function(){var t=localStorage.getItem("perp_theme")||"dark";document.documentElement.setAttribute("data-theme",t)})()</script>';
     return str_replace('</head>', $css.'</head>', $buffer);

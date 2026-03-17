@@ -101,7 +101,7 @@ $recent = $conn->query("
 
     <div class="section-title">Peminjaman Terbaru</div>
     <div class="table-wrap">
-        <table>
+        <table class="tbl-pinjam">
             <thead>
                 <tr>
                     <th>#</th>
