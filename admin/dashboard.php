@@ -36,7 +36,17 @@ $recent = $conn->query("
         .stat-num { font-size: 32px; font-weight: 700; font-family: 'Playfair Display', serif; color: var(--gold); }
         .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
         .section-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--text); }
-        .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
+
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .quick-links { grid-template-columns: repeat(2, 1fr); }
+            .main { padding: 20px 16px; }
+            th, td { padding: 10px 12px; font-size: 12px; }
+            th:nth-child(4), td:nth-child(4) { display: none; }
+        }
+        
         table { width: 100%; border-collapse: collapse; }
         th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); }
         td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--border); }
