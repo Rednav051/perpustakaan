@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/config.php';
 
-if (isLoggedIn()) redirect('/perpustakaan/login.php');
+if (isLoggedIn()) redirect('/login.php');
 
 $error = '';
 $success = '';

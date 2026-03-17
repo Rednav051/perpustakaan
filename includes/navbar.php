@@ -2,7 +2,7 @@
 // includes/navbar.php — with dark/light theme toggle
 $role    = $_SESSION['role'] ?? '';
 $name    = $_SESSION['user_name'] ?? '';
-$base    = '/perpustakaan';
+$base    = '';
 $current = basename($_SERVER['PHP_SELF']);
 
 function isActive($file) {

@@ -3,8 +3,8 @@ require_once 'includes/config.php';
 
 // Redirect if already logged in
 if (isLoggedIn()) {
-    if (isAdmin()) redirect('/perpustakaan/admin/dashboard.php');
-    else redirect('/perpustakaan/user/dashboard.php');
+    if (isAdmin()) redirect('/admin/dashboard.php');
+    else redirect('/user/dashboard.php');
 }
 
 $error = '';
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_name'] = $admin['nama'];
                 $_SESSION['role'] = 'admin';
                 $_SESSION['id_admin'] = $admin['id_admin'];
-                redirect('/perpustakaan/admin/dashboard.php');
+                redirect('/admin/dashboard.php');
             } else {
                 $error = 'ID Admin atau password salah.';
             }
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['role'] = 'mahasiswa';
                 $_SESSION['nim'] = $mhs['nim'];
                 $_SESSION['anggota_id'] = $mhs['anggota_id'];
-                redirect('/perpustakaan/user/dashboard.php');
+                redirect('/user/dashboard.php');
             } else {
                 $error = 'NIM atau password salah.';
             }

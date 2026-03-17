@@ -20,7 +20,7 @@ define('SESSION_TIMEOUT', 7200); // detik
 if (isset($_SESSION['user_id'])) {
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > SESSION_TIMEOUT) {
         session_destroy();
-        header("Location: /perpustakaan/login.php?timeout=1");
+        header("Location: /login.php?timeout=1");
         exit();
     }
     $_SESSION['last_activity'] = time();
@@ -156,16 +156,16 @@ function redirect($url) {
 }
 
 function requireLogin() {
-    if (!isLoggedIn()) redirect('/perpustakaan/login.php');
+    if (!isLoggedIn()) redirect('/login.php');
 }
 
 function requireAdmin() {
     requireLogin();
-    if (!isAdmin()) redirect('/perpustakaan/user/dashboard.php');
+    if (!isAdmin()) redirect('/user/dashboard.php');
 }
 
 function requireMahasiswa() {
     requireLogin();
-    if (!isMahasiswa()) redirect('/perpustakaan/admin/dashboard.php');
+    if (!isMahasiswa()) redirect('/admin/dashboard.php');
 }
 ?>
